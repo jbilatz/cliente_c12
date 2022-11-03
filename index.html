@@ -3,15 +3,58 @@
 <html lang="es">
     <head>
         <title>Cliente</title>
+        <style type="text/css">
+          BODY{ font-family: monospace;}
+        </style>
     </head>
     <body>
         <h1>Mi primer cliente RESTful</h1>
+        <hr>
         
-        <div id="datos">
+        <!-- <div id="datos">
+
+        </div> -->
+        
+
+        <div class="form-group">
+            <label for="metodoMenu">
+              Método HTTP:  
+            </label>
+            <select class="form-control" id="metodoMenu">
+              <option value="GET">GET</option>
+              <option value="POST">POST</option>
+              <option value="PATCH">PATCH</option>
+              <option value="DELETE">DELETE</option>
+            </select>
+          </div>  
+          
+          <hr>
+
+          <div class="form-group">
+            <label for="rutaCampo">Ruta: </label>
+            <input id="rutaCampo" type="text" size="100">
+          </div>
+
+          <hr>
+
+          <button type="submit" id="send" class="btn btn-success">Send</button>
+
+          <hr>
+
+          <div class="container">
+            <h3>Respuesta:</h3>
+            <p id="areaRespuesta"></p>
+
 
         </div>
-        
-        <script src="script.js"></script>
+
+        <hr>
+
+
+
+
+          
+          <script src="script.js"></script>
 
     </body>
 
