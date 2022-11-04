@@ -48,7 +48,7 @@ metodoMenu.addEventListener('change', ($event) => {
         const responseText = apiRequest.response;
         const response = JSON.parse(apiRequest.response);
         console.log(response);
-        areaRespuesta.innerHTML = JSON.stringify(response, null, 4);
+        areaRespuesta.textContent = JSON.stringify(response, null, 4);
 
     }
   };
