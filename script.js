@@ -45,10 +45,10 @@ metodoMenu.addEventListener('change', ($event) => {
 
   apiRequest.onreadystatechange = () => {
     if (apiRequest.readyState === 4) {
-        const responseText = apiRequest.response;
         const response = JSON.parse(apiRequest.response);
+        const responseStr = JSON.stringify(response, undefined, 4);
         console.log(response);
-        areaRespuesta.textContent = JSON.stringify(response, null, 4);
+        areaRespuesta.innerHTML = responseStr;
 
     }
   };
