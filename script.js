@@ -7,16 +7,14 @@ const areaRespuesta = document.getElementById('areaRespuesta');
 
 let apiRequest = new XMLHttpRequest();
 
-let fetchOptions = {
-    "method": "" 
-  }
-
 const metodoMenu = document.getElementById('metodoMenu');
 let metodoHTTP = "GET";
 
 const rutaCampo = document.getElementById('rutaCampo');
+const cuerpoCampo = document.getElementById('cuerpoCampo');
 const sendButton = document.getElementById('send');
 let ruta = "";
+let cuerpo = "";
 
 metodoMenu.addEventListener('change', ($event) => {
     metodoHTTP = $event.target.value;
@@ -26,20 +24,18 @@ metodoMenu.addEventListener('change', ($event) => {
 
   sendButton.addEventListener('click', () => {
     ruta = rutaCampo.value;
+    
     console.log("ruta: "+ruta);
     apiRequest.open(metodoHTTP, ruta);
-    apiRequest.send();
+    if(metodoHTTP === "POST" || metodoHTTP === "PATCH") {
+      cuerpo = cuerpoCampo.value;
+      apiRequest.setRequestHeader('Content-Type', 'application/json');
+      apiRequest.send(cuerpo);
+    } else {
+      apiRequest.send();
+    }
     
-    // fetchOptions["method"] = metodoHTTP;
-    // console.log("fetchOptions[method]: "+fetchOptions["method"])
-  
-    // fetch(ruta, fetchOptions)
-    // .then(response => response.json() )
-    // .then(data => {
-    //     console.log(data);
-    //     document.querySelector('#datos').textContent = data
-    // })
-
+    
   });
 
 
