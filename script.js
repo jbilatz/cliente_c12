@@ -1,9 +1,4 @@
 
-const dir1 = "https://apis.datos.gob.ar/georef/api/provincias?nombre=Sgo. del Estero";
-const dir2 = "http://localhost:3000/api/v1/meetings/";
-
-const areaRespuesta = document.getElementById('areaRespuesta');
-
 
 let apiRequest = new XMLHttpRequest();
 
@@ -13,6 +8,8 @@ let metodoHTTP = "GET";
 const rutaCampo = document.getElementById('rutaCampo');
 const cuerpoCampo = document.getElementById('cuerpoCampo');
 const sendButton = document.getElementById('send');
+const areaRespuesta = document.getElementById('areaRespuesta');
+
 let ruta = "";
 let cuerpo = "";
 
@@ -20,7 +17,6 @@ metodoMenu.addEventListener('change', ($event) => {
     metodoHTTP = $event.target.value;
     console.log("metodoHTTP: "+metodoHTTP)
   });
-
 
   sendButton.addEventListener('click', () => {
     ruta = rutaCampo.value;
@@ -35,10 +31,7 @@ metodoMenu.addEventListener('change', ($event) => {
       apiRequest.send();
     }
     
-    
   });
-
-  
 
   apiRequest.onreadystatechange = () => {
     if (apiRequest.readyState === 4) {
