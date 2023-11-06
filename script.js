@@ -38,6 +38,7 @@ metodoMenu.addEventListener('change', ($event) => {
     
   });
 
+  
 
   apiRequest.onreadystatechange = () => {
     if (apiRequest.readyState === 4) {
